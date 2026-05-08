@@ -37,7 +37,7 @@ COINS = {
 # ⚙️ Settings
 # ==========================================
 # ဈေး ဘယ်လောက် ပြောင်းရင် ပို့မလဲ (% အနေနဲ့)
-CHANGE_THRESHOLD = 0.1   # 0.01% ပြောင်းတိုင်း ပို့မည်
+CHANGE_THRESHOLD = 0.5   # 0.01% ပြောင်းတိုင်း ပို့မည်
 # တစ်ကြိမ်ပို့ပြီး နောက်တစ်ကြိမ် ဘယ်လောက်နေမှ ပို့မလဲ (seconds)
 COOLDOWN_SECONDS = 60    # 1 မိနစ် Cooldown
 
@@ -92,8 +92,8 @@ def format_price_message(symbol, price, change_24h, direction):
     msg += f"{arrow} ၂၄နာရီ: `{sign}{change_24h:.2f}%`\n"
     msg += f"🕐 အချိန်: `{now}`\n"
     msg += f"━━━━━━━━━━━━━━\n"
-    msg += f"📱 *Bybit မြန်မာ Community*\n"
-    msg += f"#Bybit #{info['short']} #CryptoMyanmar"
+    msg += f"📱 *https://t.me/bybitexchangemm*\n"
+    msg += f" #{info['short']} "
 
     return msg
 
