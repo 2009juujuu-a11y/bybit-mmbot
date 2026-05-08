@@ -148,8 +148,8 @@ async def connect_websocket():
                     "🤖 *Bybit Real-time Bot စတင်လည်ပတ်ပြီ!*\n\n"
                     "📊 ဈေးနှုန်း ပြောင်းတိုင်း အသိပေးမည်\n"
                     f"⚡ Threshold: {CHANGE_THRESHOLD}% ပြောင်းရင် ပို့မည်\n\n"
-                    "Coins: BTC | ETH | BNB | SOL | XRP | ADA | DOGE | AVAX\n"
-                    "#Bybit #CryptoMyanmar"
+                    "Coins: BTC | ETH | BNB | SOL | XRP | ADA | DOGE | TON| AVAX\n"
+                    "https://t.me/bybitexchangemm"
                 )
 
                 async for message in ws:
