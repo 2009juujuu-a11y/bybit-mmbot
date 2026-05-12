@@ -15,7 +15,7 @@ from telegram.error import TelegramError
 # ==========================================
 # ⚙️ သင့် Token နှင့် ID များ
 # ==========================================
-TELEGRAM_BOT_TOKEN = "8331925403:AAGXelVvEdcCY7ZdhYzcVSBm6XO-dFKKR6g"
+TELEGRAM_BOT_TOKEN = ""
 TELEGRAM_CHAT_ID   = "-1002369865337"
 
 # ==========================================
@@ -37,7 +37,7 @@ COINS = {
 # ⚙️ Settings
 # ==========================================
 SUMMARY_INTERVAL = 15 * 60   # ၁၅မိနစ်တစ်ကြိမ် ပို့မည်
-DELETE_AFTER     = 60   # ပို့တဲ့ Message အားလုံး ၁၅မိနစ်နောက် Delete
+DELETE_AFTER     = 60   # ပို့တဲ့ Message အားလုံး ၁မိနစ်နောက် Delete
 
 logging.basicConfig(
     level=logging.INFO,
