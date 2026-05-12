@@ -139,7 +139,7 @@ async def connect_websocket():
                     "📊 ၅မိနစ်တစ်ကြိမ် Summary ပို့မည်\n"
                     "🗑 Message အားလုံး ၁မိနစ်နောက် Auto Delete\n\n"
                     "Coins: BTC | ETH | BNB | SOL | XRP | ADA | DOGE | TON | AVAX\n"
-                    "https://t.me/bybitexchangemm"
+                    "@bybitexchangemm"
                 )
 
                 async for message in ws:
