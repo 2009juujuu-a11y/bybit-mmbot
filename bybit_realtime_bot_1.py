@@ -36,7 +36,7 @@ COINS = {
 # ==========================================
 # ⚙️ Settings
 # ==========================================
-SUMMARY_INTERVAL = 15 * 60   # ၁၅မိနစ်တစ်ကြိမ် ပို့မည်
+SUMMARY_INTERVAL = 5 * 60   # ၁၅မိနစ်တစ်ကြိမ် ပို့မည်
 DELETE_AFTER     = 60   # ပို့တဲ့ Message အားလုံး ၁မိနစ်နောက် Delete
 
 logging.basicConfig(
@@ -136,7 +136,7 @@ async def connect_websocket():
                 # Start Message လည်း Auto Delete ✅
                 await send_and_delete(
                     "🤖 *Crypto Prices Bot စတင်လည်ပတ်ပြီ!*\n\n"
-                    "📊 ၁၅မိနစ်တစ်ကြိမ် Summary ပို့မည်\n"
+                    "📊 ၅မိနစ်တစ်ကြိမ် Summary ပို့မည်\n"
                     "🗑 Message အားလုံး ၁မိနစ်နောက် Auto Delete\n\n"
                     "Coins: BTC | ETH | BNB | SOL | XRP | ADA | DOGE | TON | AVAX\n"
                     "https://t.me/bybitexchangemm"
