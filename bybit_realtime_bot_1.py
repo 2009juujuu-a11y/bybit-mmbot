@@ -135,9 +135,9 @@ async def connect_websocket():
 
                 # Start Message လည်း Auto Delete ✅
                 await send_and_delete(
-                    "🤖 *Bybit Bot စတင်လည်ပတ်ပြီ!*\n\n"
+                    "🤖 *Crypto Prices Bot စတင်လည်ပတ်ပြီ!*\n\n"
                     "📊 ၁၅မိနစ်တစ်ကြိမ် Summary ပို့မည်\n"
-                    "🗑 Message အားလုံး ၁၅မိနစ်နောက် Auto Delete\n\n"
+                    "🗑 Message အားလုံး ၁မိနစ်နောက် Auto Delete\n\n"
                     "Coins: BTC | ETH | BNB | SOL | XRP | ADA | DOGE | TON | AVAX\n"
                     "https://t.me/bybitexchangemm"
                 )
