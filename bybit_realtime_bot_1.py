@@ -90,11 +90,11 @@ def format_summary():
             msg += f"{info['emoji']} *{info['short']}*  `ချိတ်ဆက်နေသည်...`\n"
 
     msg += f"\n━━━━━━━━━━━━━━━━━━\n"
-    msg += f"📱 https://t.me/bybitexchangemm"
+    msg += f"📱 @bybitexchangemm"
     return msg
 
 # ==========================================
-# ⏰ ၁၅မိနစ်တစ်ကြိမ် Summary ပို့သည်
+# ⏰ ၅မိနစ်တစ်ကြိမ် Summary ပို့သည်
 # ==========================================
 async def summary_loop():
     await asyncio.sleep(15)
