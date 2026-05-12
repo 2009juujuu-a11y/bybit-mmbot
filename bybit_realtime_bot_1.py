@@ -15,7 +15,7 @@ from telegram.error import TelegramError
 # ==========================================
 # ⚙️ သင့် Token နှင့် ID များ
 # ==========================================
-TELEGRAM_BOT_TOKEN = ""
+TELEGRAM_BOT_TOKEN = "8331925403:AAGXelVvEdcCY7ZdhYzcVSBm6XO-dFKKR6g"
 TELEGRAM_CHAT_ID   = "-1002369865337"
 
 # ==========================================
