@@ -36,10 +36,8 @@ COINS = {
 # ==========================================
 # ⚙️ Settings
 # ==========================================
-# ဈေး ဘယ်လောက် ပြောင်းရင် ပို့မလဲ (% အနေနဲ့)
-CHANGE_THRESHOLD = 0.5   # 0.5% ပြောင်းတိုင်း ပို့မည်
-# တစ်ကြိမ်ပို့ပြီး နောက်တစ်ကြိမ် ဘယ်လောက်နေမှ ပို့မလဲ (seconds)
-COOLDOWN_SECONDS = 60    # 1 မိနစ် Cooldown
+CHANGE_THRESHOLD = 0.1   # 0.1% ပြောင်းတိုင်း ပို့မည်
+COOLDOWN_SECONDS = 30    # 30 စက္ကန့် Cooldown
 
 logging.basicConfig(
     level=logging.INFO,
@@ -50,9 +48,8 @@ logger = logging.getLogger(__name__)
 # ==========================================
 # 🧠 Price State Tracker
 # ==========================================
-last_prices   = {}   # နောက်ဆုံး ဈေးနှုန်း
-last_sent     = {}   # နောက်ဆုံး ပို့ခဲ့တဲ့ အချိန်
-open_prices   = {}   # ၂၄နာရီ ဖွင့်ဈေး (Change တွက်ဖို့)
+last_prices = {}
+last_sent   = {}
 
 bot = Bot(token=TELEGRAM_BOT_TOKEN)
 
@@ -78,15 +75,7 @@ def format_price_message(symbol, price, change_24h, direction):
     arrow = "🟢 ▲" if direction == "up" else "🔴 ▼"
     sign  = "+" if change_24h >= 0 else ""
 
-    if abs(change_24h) >= 5:
-        alert = "🚨 *သတိကြီးကြီးပေး!*\n"
-    elif abs(change_24h) >= 2:
-        alert = "⚡ *သတိပေးချက်!*\n"
-    else:
-        alert = ""
-
-    msg  = f"{alert}"
-    msg += f"{info['emoji']} *{info['name']} ({info['short']})*\n"
+    msg  = f"{info['emoji']} *{info['name']} ({info['short']})*\n"
     msg += f"━━━━━━━━━━━━━━\n"
     msg += f"💵 စျေးနှုန်း: `${price:,.4f}`\n"
     msg += f"{arrow} ၂၄နာရီ: `{sign}{change_24h:.2f}%`\n"
@@ -103,12 +92,10 @@ def format_price_message(symbol, price, change_24h, direction):
 async def process_ticker(symbol, price, change_24h):
     now = datetime.now().timestamp()
 
-    # Cooldown စစ်ဆေး
     if symbol in last_sent:
         if now - last_sent[symbol] < COOLDOWN_SECONDS:
             return
 
-    # ဈေးပြောင်းမှု စစ်ဆေး
     if symbol in last_prices:
         prev_price = last_prices[symbol]
         if prev_price > 0:
@@ -128,8 +115,7 @@ async def process_ticker(symbol, price, change_24h):
 async def connect_websocket():
     url = "wss://stream.bybit.com/v5/public/spot"
 
-    # Subscribe လုပ်မဲ့ Symbols
-    symbols  = list(COINS.keys())
+    symbols = list(COINS.keys())
     subscribe_msg = {
         "op": "subscribe",
         "args": [f"tickers.{s}" for s in symbols]
@@ -141,14 +127,13 @@ async def connect_websocket():
         try:
             async with websockets.connect(url, ping_interval=20) as ws:
                 await ws.send(json.dumps(subscribe_msg))
-                logger.info("✅ WebSocket ချိတ်ဆက်ပြီ! Real-time Data လက်ခံနေသည်...")
+                logger.info("✅ WebSocket ချိတ်ဆက်ပြီ!")
 
-                # Bot Start ဖြစ်တာ Group ကို အသိပေး
                 await send_message(
                     "🤖 *Bybit Real-time Bot စတင်လည်ပတ်ပြီ!*\n\n"
                     "📊 ဈေးနှုန်း ပြောင်းတိုင်း အသိပေးမည်\n"
                     f"⚡ Threshold: {CHANGE_THRESHOLD}% ပြောင်းရင် ပို့မည်\n\n"
-                    "Coins: BTC | ETH | BNB | SOL | XRP | ADA | DOGE | TON| AVAX\n"
+                    "Coins: BTC | ETH | BNB | SOL | XRP | ADA | DOGE | TON | AVAX\n"
                     "https://t.me/bybitexchangemm"
                 )
 
@@ -156,8 +141,8 @@ async def connect_websocket():
                     try:
                         data = json.loads(message)
                         if "data" in data and "topic" in data:
-                            topic  = data["topic"]           # "tickers.BTCUSDT"
-                            symbol = topic.split(".")[1]     # "BTCUSDT"
+                            topic  = data["topic"]
+                            symbol = topic.split(".")[1]
 
                             if symbol in COINS:
                                 ticker     = data["data"]
