@@ -38,7 +38,8 @@ COINS = {
 # ==========================================
 CHANGE_THRESHOLD = 0.1   # 0.1% ပြောင်းတိုင်း ပို့မည်
 COOLDOWN_SECONDS = 30    # 30 စက္ကန့် Cooldown
-
+DELETE_AFTER     = 60    # ပို့ပြီး ၁မိနစ်နောက် Delete
+ 
 logging.basicConfig(
     level=logging.INFO,
     format="%(asctime)s - %(levelname)s - %(message)s"
