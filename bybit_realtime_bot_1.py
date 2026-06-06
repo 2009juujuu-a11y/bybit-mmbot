@@ -31,6 +31,7 @@ COINS = {
     "DOGEUSDT":{"name": "Dogecoin", "emoji": "🐕", "short": "DOGE"},
     "AVAXUSDT":{"name": "Avalanche","emoji": "🔺", "short": "AVAX"},
     "TONUSDT": {"name": "Toncoin",  "emoji": "💎", "short": "TON"},
+    "SUIUSDT": {"name": "Sui",      "emoji": "🌊", "short": "SUI"},  # ← ထည့်မည်
 }
 
 # ==========================================
@@ -138,7 +139,7 @@ async def connect_websocket():
                     "🤖 *Crypto Prices Bot စတင်လည်ပတ်ပြီ!*\n\n"
                     "📊 ၅မိနစ်တစ်ကြိမ် Summary ပို့မည်\n"
                     "🗑 Message အားလုံး ၁မိနစ်နောက် Auto Delete\n\n"
-                    "Coins: BTC | ETH | BNB | SOL | XRP | ADA | DOGE | TON | AVAX\n"
+                    "Coins: BTC | ETH | BNB | SOL | XRP | ADA | DOGE | TON | AVAX | SUI\n"
                     "@bybitexchangemm"
                 )
 
